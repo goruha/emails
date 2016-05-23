@@ -1,0 +1,19 @@
+version: '2'
+services:
+  mysql:
+    image: "mysql:5.7"
+    network_mode: "host"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+
+  liquibase:
+    image: "freshbooks/liquibase-mysql:2.0.5"
+    depends_on:
+      - mysql
+    links:
+      - mysql:mysql
+    environment:
+      - TARGET_DATABASE=email_dev?createDatabaseIfNotExist=true
+      - MYSQL_PASSWORD=root
+    volumes:
+      - /vagrant/liquibase_changelog:/changelogs
