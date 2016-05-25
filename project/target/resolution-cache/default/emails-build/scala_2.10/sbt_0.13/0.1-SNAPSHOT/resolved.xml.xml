@@ -4,7 +4,7 @@
 		module="emails-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160517155700"
+		publication="20160524205833"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
